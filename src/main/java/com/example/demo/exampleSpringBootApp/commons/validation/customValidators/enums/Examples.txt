@@ -1,0 +1,14 @@
+
+https://www.baeldung.com/javax-validations-enums
+
+
+@ValueOfEnum(
+	enumClass = PerfilDistribucio.class,  
+	message = "PerfilDistribucio not valid"
+)
+
+
+@EnumNamePattern(
+	regexp = "NEW|DEFAULT",  
+	message = "PerfilDistribucio not valid"
+)

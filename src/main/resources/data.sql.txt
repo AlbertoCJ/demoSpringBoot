@@ -1,0 +1,7 @@
+INSERT INTO TUTORIALS (id, title, description, published, tutorial_type) VALUES
+(1, 'title 1', 'Descripción 1', false, 0),
+(2, 'title 2', 'Descripción 2', true, 0),
+(3, 'title 3', 'Descripción 3', false, 1),
+(4, 'title 4', 'Descripción 4', false, 0),
+(5, 'title 5', 'Descripción 5', true, 0),
+(6, 'title 6', 'Descripción 6', false, 1);

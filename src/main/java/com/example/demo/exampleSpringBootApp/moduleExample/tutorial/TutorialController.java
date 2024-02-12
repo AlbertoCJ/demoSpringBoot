@@ -42,7 +42,7 @@ public class TutorialController {
 			@RequestParam(required = false) String autorName
 	) {
 		Page<TutorialListDTO> tutorialsDTO = tutorialService.getFilterTutorials(
-			TutorialFilter.getTutorialSpecification(title, desc, published, autorName),
+			TutorialFilter.init().addTitle(title).addDescription(desc).addPublished(published).addAutorName(autorName).getTutorialSpecification(),
 			page
 		);
 

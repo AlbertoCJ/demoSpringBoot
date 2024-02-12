@@ -22,7 +22,7 @@ public class AutorSpecification implements Specification<Autor> {
     private final String DB_NAME = NAME;
     private final String DB_SURNAME1 = SURNAME1;
     private final String DB_SURNAME2 = SURNAME2;
-    private final String DB_AUTOR_TYPE = "autor_type";
+    private final String DB_AUTOR_TYPE = AUTOR_TYPE; // "autor_type";
 
     private SearchCriteria criteria;
 
@@ -50,7 +50,7 @@ public class AutorSpecification implements Specification<Autor> {
                 predicate = cb.like(root.get(DB_SURNAME2), "%"+criteria.getValue()+"%");
                 break;
             case AUTOR_TYPE:
-                predicate = cb.like(root.get(DB_AUTOR_TYPE), "%"+criteria.getValue()+"%");
+                predicate = cb.equal(root.get(DB_AUTOR_TYPE), criteria.getValue());
                 break;
             default:
                 predicate = null;

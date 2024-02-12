@@ -39,7 +39,8 @@ public class AutorController {
             @RequestParam(required = false) AutorType autorType
     ) {
         Page<AutorDTO> autorsDTO = autorService.getFilterAutors(
-                AutorFilter.getAutorSpecification(name, surname1, surname2, autorType),
+//                AutorFilter.getAutorSpecification(name, surname1, surname2, autorType),
+                AutorFilter.init().addName(name).addSurname1(surname1).addSurname2(surname2).addAutorType(autorType).getAutorSpecification(),
                 page,
                 true
         );

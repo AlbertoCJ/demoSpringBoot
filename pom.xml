@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<maven.version>3.1.0</maven.version>
-		<lombok.version>1.18.24</lombok.version>
+		<lombok.version>1.18.30</lombok.version>
 		<org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
 <!--		<hibernate-validator.version>7.0.5.Final</hibernate-validator.version>-->
 <!--		<el-api.version>2.2</el-api.version>-->

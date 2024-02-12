@@ -38,6 +38,7 @@ public class TutorialService {
 //                .map(t -> tutorialMappper.toTutorialDTO((Tutorial)t));
     }
 
+    @Transactional
     public TutorialListDTO getTutorialById(long id) {
 
         Tutorial t = tutorialRepository.getReferenceById(id);
@@ -69,10 +70,12 @@ public class TutorialService {
         return tutorialMappper.toTutorialListDTO(t);
     }
 
+    @Transactional
     public void deleteTutorialById(long id) {
         tutorialRepository.deleteById(id);
     }
 
+    @Transactional
     public void deleteAllTutorials() {
         tutorialRepository.deleteAll();
     }

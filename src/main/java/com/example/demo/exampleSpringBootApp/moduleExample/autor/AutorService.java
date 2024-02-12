@@ -12,6 +12,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 
 @Service
 public class AutorService extends BaseRepository {
@@ -22,6 +23,7 @@ public class AutorService extends BaseRepository {
     @Autowired
     AutorMapper autorMapper;
 
+    @Transactional
     public Page<AutorDTO> getFilterAutors(Specification<Autor> spec, Pageable page, boolean filterSoftDeleted) {
         if (filterSoftDeleted) this.enableFilterSoftDeleted();
         Page<AutorDTO> autors = autorRepository.findAll(spec, page).map(t -> autorMapper.toAutorDTO((Autor)t));
@@ -30,6 +32,7 @@ public class AutorService extends BaseRepository {
 
     }
 
+    @Transactional
     public AutorDTO getAutorById(long id, boolean filterSoftDeleted) {
         Autor autor = autorRepository.getReferenceById(id);
 
@@ -39,6 +42,7 @@ public class AutorService extends BaseRepository {
         return autorMapper.toAutorDTO(autor);
     }
 
+    @Transactional
     public AutorDTO createAutor(AutorDTO autorDTO) {
 
         Autor a = autorMapper.createAutor(autorDTO);
@@ -46,6 +50,7 @@ public class AutorService extends BaseRepository {
         return autorMapper.toAutorDTO(a);
     }
 
+    @Transactional
     public AutorDTO updateAutor(long id,AutorDTO autorDTO) {
 
         Autor a = autorRepository.getReferenceById(id);
@@ -58,10 +63,12 @@ public class AutorService extends BaseRepository {
         return autorMapper.toAutorDTO(a);
     }
 
+    @Transactional
     public void deleteAutorById(long id) {
         autorRepository.deleteById(id);
     }
 
+    @Transactional
     public void deleteAllAutors() {
         autorRepository.deleteAll();
     }
